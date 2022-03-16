@@ -3,7 +3,7 @@ let loginResponseSuccess = {
         'nome': 'Usuário HMV',
         'cpf': '123.456.789-12'
     },
-    'token': 'abc123',
+    'accessToken': 'abc123',
 };
 
 let loginResponseError = {
@@ -15,7 +15,7 @@ var loginRouter = function(app) {
         try {
             console.log('Acessando login');
 
-            if (req.body.cpf === '1212') {
+            if (req.body.login === '1212') {
                 res.status(401).json(loginResponseError);
             } else {
                 res.status(200).json(loginResponseSuccess);
