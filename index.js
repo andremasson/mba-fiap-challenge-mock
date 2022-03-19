@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 loginRouter(app)
 
 app.listen(port, function() {
-  console.log("Runnning on " + port);
+  console.log("Porta: " + port);
 });
 
 module.exports = app;
