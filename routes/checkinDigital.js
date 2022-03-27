@@ -1,19 +1,17 @@
+// [ ESTA_NO_LOCAL, NO_LOCAL_APOS_1_HORA, NO_LOCAL_EM_ATE_1_HORA, NO_LOCAL_EM_ATE_30_MINUTOS ]
+
+const checkinResponse = {
+    "checkInId": "GK-43O",
+    "checkInDate": "2022-03-25 23:20:43",
+    "expiresDate": "2022-03-26 03:20:43"
+};
+
 const checkinDigital = function(app) {
-    app.post("/checkinDigital", async (req, res) => {
+    app.post("/check-in", async (req, res) => {
         try {
-            if (!req.body.statusCheckin) {
-                console.log('Saindo checkin');
-                res.status(200).json({
-                    mensagem: 'Checkin não realizado',
-                    statusCheckin: false
-                });
-            } else {
-                console.log('Fazendo checkin');
-                res.status(200).json({
-                    mensagem: 'Checkin confirmado',
-                    statusCheckin: true
-                });
-            }
+            console.log('Fazendo checkin');
+            console.log(req.body);
+            res.status(200).json(checkinResponse);
 
         } catch (err) {
             res.status(500).json({
@@ -23,14 +21,11 @@ const checkinDigital = function(app) {
         }
     });
 
-    app.get("/checkinDigital/:id", async (req, res) => {
+    app.put("/check-in/:id/confirm", async (req, res) => {
         try {
             console.log(`Consultando checkin: ${req.params.id}`);
 
-            res.status(200).json({
-                mensagem: 'Checkin não realizado',
-                statusCheckin: false
-            });
+            res.status(200).json(checkinResponse);
 
         } catch (err) {
             res.status(500).json({
